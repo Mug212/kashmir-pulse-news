@@ -6,13 +6,16 @@ import { ArticleModal } from "@/components/ArticleModal";
 import { AdUnit } from "@/components/AdUnit";
 import { newsService } from "@/services/newsApi";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, AlertCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { RefreshCw, AlertCircle, Settings, Wifi, WifiOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { ApiKeySetup } from "@/components/ApiKeySetup";
 
 const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState('general');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isApiSetupOpen, setIsApiSetupOpen] = useState(false);
   const { toast } = useToast();
 
   const { data: articles = [], isLoading, error, refetch } = useQuery({
@@ -37,6 +40,10 @@ const Index = () => {
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
+  };
+
+  const handleApiKeySetup = () => {
+    refetch(); // Refresh data after API key setup
   };
 
   if (error) {
@@ -65,26 +72,57 @@ const Index = () => {
       <Header selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
       
       <main className="container mx-auto px-4 py-6">
-        {/* Hero section with refresh */}
-        <div className="flex items-center justify-between mb-8">
+        {/* Hero section with refresh and API setup */}
+        <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-news-headline font-headline">
-              {selectedCategory === 'general' ? 'Latest News' : 
-               `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} News`}
-            </h2>
-            <p className="text-news-metadata mt-1">
-              Stay updated with the latest stories from Kashmir and beyond
+            <div className="flex items-center space-x-3 mb-2">
+              <h2 className="text-2xl font-bold text-news-headline font-headline">
+                {selectedCategory === 'general' ? 'Latest News' : 
+                 `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} News`}
+              </h2>
+              <Badge variant="outline" className="flex items-center space-x-1">
+                {newsService.isApiKeyConfigured() ? (
+                  <>
+                    <Wifi className="w-3 h-3 text-success" />
+                    <span className="text-xs">Live</span>
+                  </>
+                ) : (
+                  <>
+                    <WifiOff className="w-3 h-3 text-warning" />
+                    <span className="text-xs">Demo</span>
+                  </>
+                )}
+              </Badge>
+            </div>
+            <p className="text-news-metadata">
+              {newsService.isApiKeyConfigured() 
+                ? "Real-time news updates from NewsAPI" 
+                : "Demo articles - Configure API key for live updates"
+              }
             </p>
           </div>
-          <Button 
-            variant="outline" 
-            onClick={handleRefresh}
-            disabled={isLoading}
-            className="flex items-center space-x-2"
-          >
-            <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
-            <span>Refresh</span>
-          </Button>
+          
+          <div className="flex items-center space-x-2">
+            <Button 
+              variant="outline"
+              size="sm"
+              onClick={() => setIsApiSetupOpen(true)}
+              className="flex items-center space-x-2"
+            >
+              <Settings className="w-4 h-4" />
+              <span className="hidden sm:inline">API Setup</span>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={handleRefresh}
+              disabled={isLoading}
+              className="flex items-center space-x-2"
+            >
+              <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
+              <span className="hidden sm:inline">Refresh</span>
+            </Button>
+          </div>
         </div>
 
         {/* Top banner ad */}
@@ -108,23 +146,33 @@ const Index = () => {
 
         {/* Articles grid */}
         {!isLoading && articles.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {articles.map((article, index) => (
-              <div key={`${article.url}-${index}`}>
-                <NewsCard
-                  article={article}
-                  category={selectedCategory}
-                  onClick={() => handleArticleClick(article)}
-                />
-                {/* Insert ad after every 3rd article */}
-                {(index + 1) % 3 === 0 && (
-                  <div className="mt-6">
-                    <AdUnit slot={`article-${index + 1}`} />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {articles.map((article, index) => (
+                <div key={`${article.url}-${index}`}>
+                  <NewsCard
+                    article={article}
+                    category={selectedCategory}
+                    onClick={() => handleArticleClick(article)}
+                  />
+                  {/* Insert ad after every 4th article */}
+                  {(index + 1) % 4 === 0 && (
+                    <div className="mt-6 lg:col-span-3 md:col-span-2">
+                      <AdUnit slot={`article-${index + 1}`} />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {/* Show total articles count */}
+            <div className="text-center text-news-metadata mb-4">
+              Showing {articles.length} articles
+              {newsService.isApiKeyConfigured() && (
+                <span className="ml-2 text-success">• Live updates enabled</span>
+              )}
+            </div>
+          </>
         )}
 
         {/* No articles state */}
@@ -152,6 +200,13 @@ const Index = () => {
         category={selectedCategory}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+      />
+
+      {/* API Key Setup Modal */}
+      <ApiKeySetup
+        isOpen={isApiSetupOpen}
+        onClose={() => setIsApiSetupOpen(false)}
+        onApiKeySet={handleApiKeySetup}
       />
     </div>
   );
