@@ -2,39 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Kashmir Pulse News App Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors */
+    --background: 249 250 251;
+    --foreground: 15 23 42;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system */
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover */
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Kashmir blue */
+    --primary: 219 78% 20%;
+    --primary-foreground: 255 255 255;
+    --primary-light: 219 78% 35%;
+    --primary-dark: 219 78% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Professional gray */
+    --secondary: 210 11% 96%;
+    --secondary-foreground: 51 65% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 210 11% 96%;
+    --muted-foreground: 100 7% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Kashmir saffron */
+    --accent: 18 95% 55%;
+    --accent-foreground: 255 255 255;
+    --accent-light: 18 95% 65%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* News category colors */
+    --politics: 345 83% 47%;
+    --business: 142 71% 45%;
+    --sports: 24 95% 53%;
+    --technology: 262 83% 58%;
+    --culture: 291 64% 42%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 255 255 255;
+    --success: 142 71% 45%;
+    --warning: 45 93% 47%;
+
+    /* Border and input */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 219 78% 20%;
+
+    /* News-specific colors */
+    --news-headline: 15 23 42;
+    --news-summary: 100 7% 30%;
+    --news-metadata: 100 7% 45%;
+    --ad-background: 210 11% 98%;
+    --breaking-news: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(219 78% 20%) 0%, hsl(219 78% 35%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(210 11% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(18 95% 55%) 0%, hsl(18 95% 65%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-header: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    /* Typography */
+    --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Spacing */
+    --radius: 0.5rem;
 
     --radius: 0.5rem;
 
@@ -100,6 +143,26 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
