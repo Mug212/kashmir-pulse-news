@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    /* Base colors - Traditional newspaper black and white */
-    --background: 255 255 255; /* Pure white background */
+    /* Base colors - Traditional newspaper with creamy background */
+    --background: 45 29% 97%; /* Creamy newspaper background */
     --foreground: 0 0% 8%; /* Rich black text */
 
     /* Card system */
-    --card: 255 255 255;
+    --card: 0 0% 100%;
     --card-foreground: 0 0% 8%;
 
     /* Popover */
-    --popover: 255 255 255;
+    --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
     /* Primary - Traditional newspaper black */
     --primary: 0 0% 8%;
-    --primary-foreground: 255 255 255;
+    --primary-foreground: 0 0% 100%;
     --primary-light: 0 0% 20%;
     --primary-dark: 0 0% 0%;
 
-    /* Secondary - Light gray for subtle backgrounds */
-    --secondary: 0 0% 96%;
+    /* Secondary - Light cream for subtle backgrounds */
+    --secondary: 45 29% 95%;
     --secondary-foreground: 0 0% 8%;
 
     /* Muted tones - Classic newspaper grays */
-    --muted: 0 0% 96%;
+    --muted: 45 15% 94%;
     --muted-foreground: 0 0% 45%;
 
     /* Accent - Classic newspaper red (minimal usage) */
     --accent: 0 84% 50%;
-    --accent-foreground: 255 255 255;
+    --accent-foreground: 0 0% 100%;
     --accent-light: 0 84% 60%;
 
     /* News category colors - Monochromatic with subtle variations */
@@ -46,7 +46,7 @@
 
     /* Status colors - Traditional newspaper approach */
     --destructive: 0 84% 50%;
-    --destructive-foreground: 255 255 255;
+    --destructive-foreground: 0 0% 100%;
     --success: 0 0% 20%;        /* Dark gray instead of green */
     --warning: 45 100% 40%;     /* Dark yellow for warnings */
 
@@ -59,12 +59,12 @@
     --news-headline: 0 0% 8%;     /* Deep black for headlines */
     --news-summary: 0 0% 20%;     /* Dark gray for summaries */
     --news-metadata: 0 0% 45%;    /* Medium gray for bylines/dates */
-    --ad-background: 0 0% 98%;    /* Very light gray for ads */
+    --ad-background: 45 15% 96%;  /* Light cream for ads */
     --breaking-news: 0 84% 50%;   /* Red only for breaking news */
 
-    /* Gradients - Subtle grayscale */
-    --gradient-hero: linear-gradient(180deg, hsl(255 255 255) 0%, hsl(0 0% 98%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(0 0% 99%) 100%);
+    /* Gradients - Subtle creamy gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(45 29% 97%) 0%, hsl(45 15% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(45 15% 96%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(0 84% 60%) 100%);
 
     /* Shadows - Subtle newspaper-style */
@@ -80,11 +80,11 @@
     /* Spacing */
     --radius: 0.25rem; /* Smaller radius for newspaper feel */
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 45 15% 96%;
     --sidebar-foreground: 0 0% 8%;
     --sidebar-primary: 0 0% 8%;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 45 29% 95%;
     --sidebar-accent-foreground: 0 0% 8%;
     --sidebar-border: 0 0% 85%;
     --sidebar-ring: 0 0% 8%;
@@ -93,40 +93,40 @@
   .dark {
     /* Dark mode - Inverted newspaper (rare but elegant) */
     --background: 0 0% 8%;
-    --foreground: 255 255 255;
+    --foreground: 0 0% 100%;
     --card: 0 0% 8%;
-    --card-foreground: 255 255 255;
+    --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 8%;
-    --popover-foreground: 255 255 255;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 255 255 255;
+    --primary: 0 0% 100%;
     --primary-foreground: 0 0% 8%;
 
     --secondary: 0 0% 15%;
-    --secondary-foreground: 255 255 255;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
 
     --accent: 0 84% 60%;
-    --accent-foreground: 255 255 255;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 255 255 255;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 255 255 255;
+    --ring: 0 0% 100%;
     
     --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 255 255 255;
-    --sidebar-primary: 255 255 255;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
     --sidebar-primary-foreground: 0 0% 8%;
     --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 255 255 255;
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 255 255 255;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
