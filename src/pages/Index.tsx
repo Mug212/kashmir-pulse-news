@@ -21,8 +21,8 @@ const Index = () => {
   const { data: articles = [], isLoading, error, refetch } = useQuery({
     queryKey: ['news', selectedCategory],
     queryFn: () => newsService.getTopHeadlines(selectedCategory),
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes
+    staleTime: 0, // Always fetch fresh data
+    gcTime: 1 * 60 * 1000, // 1 minute cache
   });
 
   const handleArticleClick = (article: Article) => {
@@ -103,15 +103,6 @@ const Index = () => {
           </div>
           
           <div className="flex items-center space-x-2">
-            <Button 
-              variant="outline"
-              size="sm"
-              onClick={() => setIsApiSetupOpen(true)}
-              className="flex items-center space-x-2"
-            >
-              <Settings className="w-4 h-4" />
-              <span className="hidden sm:inline">API Setup</span>
-            </Button>
             <Button 
               variant="outline" 
               size="sm"

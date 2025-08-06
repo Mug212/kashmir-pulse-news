@@ -256,11 +256,10 @@ The latest additions include three new district hospitals, 50 primary health cen
 ];
 
 export class NewsService {
-  private apiKey: string | null = null;
+  private apiKey: string = '102f48ef4f704f3ea4f636cf92d58191';
 
   constructor() {
-    // Try to get API key from localStorage or environment
-    this.apiKey = localStorage.getItem('newsapi_key') || null;
+    // API key is now hardcoded
   }
 
   async getTopHeadlines(category: string = 'general'): Promise<Article[]> {
@@ -365,18 +364,16 @@ export class NewsService {
   // Method to set API key for real-time updates
   setApiKey(apiKey: string) {
     this.apiKey = apiKey;
-    localStorage.setItem('newsapi_key', apiKey);
   }
 
   // Method to remove API key
   removeApiKey() {
-    this.apiKey = null;
-    localStorage.removeItem('newsapi_key');
+    // Keep the configured API key
   }
 
   // Method to check if API key is configured
   isApiKeyConfigured(): boolean {
-    return !!this.apiKey;
+    return true;
   }
 }
 
