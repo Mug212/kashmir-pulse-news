@@ -2,100 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Kashmir Pulse News App Design System */
+/* The Kashmir Pulse - Classic Newspaper Design System */
 
 @layer base {
   :root {
-    /* Base colors */
-    --background: 249 250 251;
-    --foreground: 15 23 42;
+    /* Base colors - Classic newspaper palette */
+    --background: 252 252 252; /* Off-white newspaper background */
+    --foreground: 15 15 15; /* Rich black text */
 
     /* Card system */
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 15 15 15;
 
     /* Popover */
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover-foreground: 15 15 15;
 
-    /* Primary - Kashmir blue */
-    --primary: 219 78% 20%;
+    /* Primary - Classic newspaper blue for links */
+    --primary: 210 100% 20%;
     --primary-foreground: 255 255 255;
-    --primary-light: 219 78% 35%;
-    --primary-dark: 219 78% 15%;
+    --primary-light: 210 100% 35%;
+    --primary-dark: 210 100% 15%;
 
-    /* Secondary - Professional gray */
-    --secondary: 210 11% 96%;
-    --secondary-foreground: 51 65% 15%;
+    /* Secondary - Light gray for borders */
+    --secondary: 210 7% 97%;
+    --secondary-foreground: 15 15 15;
 
     /* Muted tones */
-    --muted: 210 11% 96%;
-    --muted-foreground: 100 7% 45%;
+    --muted: 210 7% 96%;
+    --muted-foreground: 60 2% 48%;
 
-    /* Accent - Kashmir saffron */
-    --accent: 18 95% 55%;
+    /* Accent - Classic newspaper red */
+    --accent: 0 85% 50%;
     --accent-foreground: 255 255 255;
-    --accent-light: 18 95% 65%;
+    --accent-light: 0 85% 60%;
 
-    /* News category colors */
-    --politics: 345 83% 47%;
-    --business: 142 71% 45%;
-    --sports: 24 95% 53%;
-    --technology: 262 83% 58%;
-    --culture: 291 64% 42%;
+    /* News category colors - Traditional newspaper section colors */
+    --politics: 0 85% 50%;      /* Red for politics */
+    --business: 210 100% 25%;   /* Navy for business */
+    --sports: 120 60% 35%;      /* Green for sports */
+    --technology: 260 85% 45%;  /* Purple for tech */
+    --culture: 25 85% 50%;      /* Orange for culture */
 
     /* Status colors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 255 255 255;
-    --success: 142 71% 45%;
+    --success: 120 60% 35%;
     --warning: 45 93% 47%;
 
     /* Border and input */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 219 78% 20%;
+    --border: 210 10% 85%;
+    --input: 210 10% 85%;
+    --ring: 210 100% 20%;
 
     /* News-specific colors */
-    --news-headline: 15 23 42;
-    --news-summary: 100 7% 30%;
-    --news-metadata: 100 7% 45%;
-    --ad-background: 210 11% 98%;
-    --breaking-news: 0 84% 60%;
+    --news-headline: 15 15 15;     /* Deep black for headlines */
+    --news-summary: 60 2% 25%;     /* Dark gray for summaries */
+    --news-metadata: 60 2% 48%;    /* Medium gray for metadata */
+    --ad-background: 210 7% 98%;   /* Very light gray for ads */
+    --breaking-news: 0 85% 50%;    /* Red for breaking news */
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(219 78% 20%) 0%, hsl(219 78% 35%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(210 11% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(18 95% 55%) 0%, hsl(18 95% 65%) 100%);
+    /* Gradients - Subtle newspaper-style */
+    --gradient-hero: linear-gradient(180deg, hsl(252 252 252) 0%, hsl(210 7% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(210 7% 99%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0 85% 50%) 0%, hsl(0 85% 60%) 100%);
 
-    /* Shadows */
-    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-header: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    /* Shadows - Subtle newspaper-style */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08);
+    --shadow-card-hover: 0 2px 8px 0 rgb(0 0 0 / 0.12);
+    --shadow-header: 0 1px 3px 0 rgb(0 0 0 / 0.08);
 
-    /* Typography */
-    --font-headline: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Typography - Classic newspaper fonts */
+    --font-headline: 'Playfair Display', Georgia, serif;
+    --font-body: 'Crimson Text', Georgia, serif;
+    --font-accent: 'Old Standard TT', Times, serif;
 
     /* Spacing */
-    --radius: 0.5rem;
-
-    --radius: 0.5rem;
+    --radius: 0.25rem; /* Smaller radius for newspaper feel */
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 15 15 15;
+    --sidebar-primary: 15 15 15;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 210 7% 97%;
+    --sidebar-accent-foreground: 15 15 15;
+    --sidebar-border: 210 10% 85%;
+    --sidebar-ring: 210 100% 20%;
   }
 
   .dark {
@@ -164,5 +156,24 @@
 
   .transition-smooth {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Newspaper-specific typography utilities */
+  .newspaper-border {
+    border-top: 2px solid hsl(var(--foreground));
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  
+  .newspaper-divider {
+    border-top: 1px solid hsl(var(--border));
+  }
+  
+  .drop-cap {
+    float: left;
+    font-family: var(--font-headline);
+    font-size: 4rem;
+    line-height: 3rem;
+    padding-right: 0.5rem;
+    margin-top: 0.25rem;
   }
 }

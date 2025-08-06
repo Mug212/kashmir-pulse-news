@@ -91,8 +91,9 @@ export default {
 				'header': 'var(--shadow-header)'
 			},
 			fontFamily: {
-				'headline': 'var(--font-headline)',
-				'body': 'var(--font-body)'
+				'headline': ['Playfair Display', 'Georgia', 'serif'],
+				'body': ['Crimson Text', 'Georgia', 'serif'],
+				'accent': ['Old Standard TT', 'Times', 'serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
