@@ -6,71 +6,71 @@
 
 @layer base {
   :root {
-    /* Base colors - Classic newspaper palette */
-    --background: 252 252 252; /* Off-white newspaper background */
-    --foreground: 15 15 15; /* Rich black text */
+    /* Base colors - Traditional newspaper black and white */
+    --background: 255 255 255; /* Pure white background */
+    --foreground: 0 0% 8%; /* Rich black text */
 
     /* Card system */
     --card: 255 255 255;
-    --card-foreground: 15 15 15;
+    --card-foreground: 0 0% 8%;
 
     /* Popover */
     --popover: 255 255 255;
-    --popover-foreground: 15 15 15;
+    --popover-foreground: 0 0% 8%;
 
-    /* Primary - Classic newspaper blue for links */
-    --primary: 210 100% 20%;
+    /* Primary - Traditional newspaper black */
+    --primary: 0 0% 8%;
     --primary-foreground: 255 255 255;
-    --primary-light: 210 100% 35%;
-    --primary-dark: 210 100% 15%;
+    --primary-light: 0 0% 20%;
+    --primary-dark: 0 0% 0%;
 
-    /* Secondary - Light gray for borders */
-    --secondary: 210 7% 97%;
-    --secondary-foreground: 15 15 15;
+    /* Secondary - Light gray for subtle backgrounds */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    /* Muted tones */
-    --muted: 210 7% 96%;
-    --muted-foreground: 60 2% 48%;
+    /* Muted tones - Classic newspaper grays */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent - Classic newspaper red */
-    --accent: 0 85% 50%;
+    /* Accent - Classic newspaper red (minimal usage) */
+    --accent: 0 84% 50%;
     --accent-foreground: 255 255 255;
-    --accent-light: 0 85% 60%;
+    --accent-light: 0 84% 60%;
 
-    /* News category colors - Traditional newspaper section colors */
-    --politics: 0 85% 50%;      /* Red for politics */
-    --business: 210 100% 25%;   /* Navy for business */
-    --sports: 120 60% 35%;      /* Green for sports */
-    --technology: 260 85% 45%;  /* Purple for tech */
-    --culture: 25 85% 50%;      /* Orange for culture */
+    /* News category colors - Monochromatic with subtle variations */
+    --politics: 0 84% 50%;      /* Red only for breaking/important politics */
+    --business: 0 0% 20%;       /* Dark gray */
+    --sports: 0 0% 25%;         /* Medium dark gray */
+    --technology: 0 0% 15%;     /* Very dark gray */
+    --culture: 0 0% 30%;        /* Medium gray */
 
-    /* Status colors */
-    --destructive: 0 84% 60%;
+    /* Status colors - Traditional newspaper approach */
+    --destructive: 0 84% 50%;
     --destructive-foreground: 255 255 255;
-    --success: 120 60% 35%;
-    --warning: 45 93% 47%;
+    --success: 0 0% 20%;        /* Dark gray instead of green */
+    --warning: 45 100% 40%;     /* Dark yellow for warnings */
 
-    /* Border and input */
-    --border: 210 10% 85%;
-    --input: 210 10% 85%;
-    --ring: 210 100% 20%;
+    /* Border and input - Traditional newspaper lines */
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 8%;
 
-    /* News-specific colors */
-    --news-headline: 15 15 15;     /* Deep black for headlines */
-    --news-summary: 60 2% 25%;     /* Dark gray for summaries */
-    --news-metadata: 60 2% 48%;    /* Medium gray for metadata */
-    --ad-background: 210 7% 98%;   /* Very light gray for ads */
-    --breaking-news: 0 85% 50%;    /* Red for breaking news */
+    /* News-specific colors - Traditional newspaper hierarchy */
+    --news-headline: 0 0% 8%;     /* Deep black for headlines */
+    --news-summary: 0 0% 20%;     /* Dark gray for summaries */
+    --news-metadata: 0 0% 45%;    /* Medium gray for bylines/dates */
+    --ad-background: 0 0% 98%;    /* Very light gray for ads */
+    --breaking-news: 0 84% 50%;   /* Red only for breaking news */
 
-    /* Gradients - Subtle newspaper-style */
-    --gradient-hero: linear-gradient(180deg, hsl(252 252 252) 0%, hsl(210 7% 98%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(210 7% 99%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(0 85% 50%) 0%, hsl(0 85% 60%) 100%);
+    /* Gradients - Subtle grayscale */
+    --gradient-hero: linear-gradient(180deg, hsl(255 255 255) 0%, hsl(0 0% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(0 0% 99%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(0 84% 60%) 100%);
 
     /* Shadows - Subtle newspaper-style */
-    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08);
-    --shadow-card-hover: 0 2px 8px 0 rgb(0 0 0 / 0.12);
-    --shadow-header: 0 1px 3px 0 rgb(0 0 0 / 0.08);
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06);
+    --shadow-card-hover: 0 2px 8px 0 rgb(0 0 0 / 0.1);
+    --shadow-header: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
     /* Typography - Classic newspaper fonts */
     --font-headline: 'Playfair Display', Georgia, serif;
@@ -81,51 +81,52 @@
     --radius: 0.25rem; /* Smaller radius for newspaper feel */
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 15 15 15;
-    --sidebar-primary: 15 15 15;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
     --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 210 7% 97%;
-    --sidebar-accent-foreground: 15 15 15;
-    --sidebar-border: 210 10% 85%;
-    --sidebar-ring: 210 100% 20%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 0 0% 8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - Inverted newspaper (rare but elegant) */
+    --background: 0 0% 8%;
+    --foreground: 255 255 255;
+    --card: 0 0% 8%;
+    --card-foreground: 255 255 255;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 255 255 255;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --primary: 255 255 255;
+    --primary-foreground: 0 0% 8%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 255 255 255;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 255 255 255;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 255 255 255;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 255 255 255;
+    
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 255 255 255;
+    --sidebar-primary: 255 255 255;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 255 255 255;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 255 255 255;
   }
 }
 
