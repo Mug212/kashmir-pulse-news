@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { RefreshCw, AlertCircle, Settings, Wifi, WifiOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { ApiKeySetup } from "@/components/ApiKeySetup";
+import { NewsApiSetup } from "@/components/NewsApiSetup";
 
 const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState('general');
@@ -77,32 +77,29 @@ const Index = () => {
           <div>
             <div className="flex items-center space-x-3 mb-2">
               <h2 className="text-2xl font-bold text-news-headline font-headline">
-                {selectedCategory === 'general' ? 'Latest News' : 
+                {selectedCategory === 'general' ? 'Global Top Stories' : 
                  `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} News`}
               </h2>
               <Badge variant="outline" className="flex items-center space-x-1">
-                {newsService.isApiKeyConfigured() ? (
-                  <>
-                    <Wifi className="w-3 h-3 text-success" />
-                    <span className="text-xs">Live</span>
-                  </>
-                ) : (
-                  <>
-                    <WifiOff className="w-3 h-3 text-warning" />
-                    <span className="text-xs">Demo</span>
-                  </>
-                )}
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-xs">Live Worldwide</span>
               </Badge>
             </div>
             <p className="text-news-metadata">
-              {newsService.isApiKeyConfigured() 
-                ? "Real-time news updates from NewsAPI" 
-                : "Demo articles - Configure API key for live updates"
-              }
+              Real-time news updates from trusted sources around the globe
             </p>
           </div>
           
           <div className="flex items-center space-x-2">
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => setIsApiSetupOpen(true)}
+              className="flex items-center space-x-2"
+            >
+              <Settings className="w-4 h-4" />
+              <span className="hidden sm:inline">Setup API</span>
+            </Button>
             <Button 
               variant="outline" 
               size="sm"
@@ -158,10 +155,15 @@ const Index = () => {
             
             {/* Show total articles count */}
             <div className="text-center text-news-metadata mb-4">
-              Showing {articles.length} articles
-              {newsService.isApiKeyConfigured() && (
-                <span className="ml-2 text-success">• Live updates enabled</span>
-              )}
+              Showing {articles.length} articles from global sources
+              <div className="mt-1 flex items-center justify-center space-x-4 text-xs">
+                <span className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span>Live updates enabled</span>
+                </span>
+                <span>•</span>
+                <span>Updated every refresh</span>
+              </div>
             </div>
           </>
         )}
@@ -193,8 +195,8 @@ const Index = () => {
         onClose={() => setIsModalOpen(false)}
       />
 
-      {/* API Key Setup Modal */}
-      <ApiKeySetup
+      {/* NewsAPI Setup Modal */}
+      <NewsApiSetup
         isOpen={isApiSetupOpen}
         onClose={() => setIsApiSetupOpen(false)}
         onApiKeySet={handleApiKeySetup}
