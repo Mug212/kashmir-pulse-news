@@ -334,9 +334,18 @@ export class NewsService {
   }
 
   private getDemoArticles(category: string): Article[] {
+    // Create a shuffled copy of demo articles to simulate fresh content
+    const shuffledArticles = [...demoArticles].sort(() => Math.random() - 0.5);
+    
+    // Update publish times to be more recent and varied (simulate live updates)
+    const articlesWithUpdatedTimes = shuffledArticles.map((article, index) => ({
+      ...article,
+      publishedAt: new Date(Date.now() - (index + 1) * Math.random() * 3 * 60 * 60 * 1000).toISOString()
+    }));
+
     // Return all demo articles for general category
     if (category === 'general') {
-      return demoArticles;
+      return articlesWithUpdatedTimes;
     }
     
     // Filter articles by category keywords for more relevant results
@@ -350,15 +359,15 @@ export class NewsService {
 
     const keywords = categoryKeywords[category as keyof typeof categoryKeywords] || [];
     
-    const filtered = demoArticles.filter(article => 
+    const filtered = articlesWithUpdatedTimes.filter(article => 
       keywords.some(keyword => 
         article.title.toLowerCase().includes(keyword) || 
         article.description.toLowerCase().includes(keyword)
       )
     );
 
-    // If we have filtered results, return them, otherwise return a few general articles
-    return filtered.length > 0 ? filtered : demoArticles.slice(0, 4);
+    // If we have filtered results, return them shuffled, otherwise return shuffled general articles
+    return filtered.length > 0 ? filtered : articlesWithUpdatedTimes.slice(0, 4);
   }
 
   // Method to set API key for real-time updates
